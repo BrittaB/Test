@@ -17,12 +17,15 @@ const firebaseConfig = {
   });
 
   function gitHubLogin() {
-    cosnt provider = new firebase.auth.GithubAuthProvider();
+    const provider = new firebase.auth.GithubAuthProvider();
 
     firebase.auth().signInWithPopup(provider)
 
       .then(result => {
-          const user = sesult.user;
-          
+          const user = result.user;
+          const token = result.credential.accessToken;
+          document.write(`Hello ${user.displayName}`);
+          console.log()
+          .catch(console.log)
       })
   }
